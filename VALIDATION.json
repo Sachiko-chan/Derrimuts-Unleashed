@@ -1,0 +1,60 @@
+{
+  "revision": "r10",
+  "sha256": "e51e2d5cd212039749da371f1dcf64fcd0e3737c92dcda54fa18c199ae60678f",
+  "cleanBuildsCompared": 2,
+  "unsignedByteIdentical": true,
+  "node": "v24.22.1",
+  "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment (build 17.0.20+8-1-24.04-Ubuntu)\nOpenJDK 64-Bit Server VM (build 17.0.20+8-1-24.04-Ubuntu, mixed mode, sharing)",
+  "inputs": {
+    "base.apk": "b198524077b3bafcbc3389616e15552252126c7d0fe8a448751943f562e7d6c3",
+    "config.arm64_v8a.apk": "d0950678de3bdbccb3199f8147873c679d20bd9bed167fa4b6bb77fec8cbc2ef",
+    "config.en.apk": "036778a55a1da3493979b2fa10e7b456f68fc92a0a49c4c75112f1276e0f288b",
+    "config.xxhdpi.apk": "53263d1a6a0dbde124d309e91f7d92955f45ab55fcf7ca627d818f65eebc6018"
+  },
+  "tools": {
+    "apktool.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/apktool/apktool-cli/2.11.1/apktool-cli-2.11.1.jar",
+      "sha256": "4920d21254ab9275d402f8cc30e5cef55a4e726c434daeaa487a238457efbfb5"
+    },
+    "APKEditor.jar": {
+      "url": "https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar",
+      "sha256": "a9cd40df818845456be6d696de6110c89edf4b0a0580cb83438ed6b25a366e67"
+    },
+    "apksigner.deb": {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/a/android-platform-tools-apksig/apksigner_31.0.2-1ubuntu1_all.deb",
+      "sha256": "37a04ceb8c80b6956dd702b99d3a6b7cae1c0e8085d1334adc77b8f92a3117e6"
+    },
+    "apksig.deb": {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/a/android-platform-tools-apksig/libapksig-java_31.0.2-1ubuntu1_all.deb",
+      "sha256": "35a70af2666f09402034dc5d154ddbc84819e58b0f8ac60b311594bc5f7ecfc1"
+    },
+    "android.jar": {
+      "url": "https://repo.maven.apache.org/maven2/com/google/android/android/4.1.1.4/android-4.1.1.4.jar",
+      "sha256": "84072541cbb711eff89f7277100ff854929a446dba7ceb1b195c340e0b4fd3cb"
+    },
+    "r8.jar": {
+      "url": "https://storage.googleapis.com/r8-releases/raw/8.3.37/r8.jar",
+      "sha256": "900dfbc649519969fc5a4c7520d6b7355338e565fa1249874e0190b8d61b1199"
+    },
+    "ecj.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/jdt/ecj/3.33.0/ecj-3.33.0.jar",
+      "sha256": "f7686c4960cf70c2ebc5c500a73a8cfc04541b730c18f1c5c21329889b137f45"
+    },
+    "json.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/json/json/20140107/json-20140107.jar",
+      "sha256": "8e5aa0a368bee60347b5a4ad861d9f68c7793f60deeea89efd449eb70d5ae622"
+    }
+  },
+  "checks": {
+    "originalResourcesPreserved": 1880,
+    "nativeLibrariesPreserved": 4,
+    "gateAndAuthClassesUnchangedApartFromObserverHooks": 8,
+    "zipCrcsVerified": 2140,
+    "alignment": "4-byte; native libraries 16 KiB"
+  },
+  "runtimeTested": false,
+  "testsPassed": 5,
+  "sourceOnlyDelivery": true,
+  "androidLocationProviderDisabled": true,
+  "locationPermissionsDeclared": []
+}
