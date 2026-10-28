@@ -1,7 +1,6 @@
 .class public final Lprivacy/AndroidLocation;
 .super Ljava/lang/Object;
 
-# Convenience overload: no gym metadata.
 .method public static request(Landroid/support/v4/media/session/r;Landroid/content/Context;Lcom/google/android/material/datepicker/i;)V
     .locals 1
     const/4 v0, 0x0
@@ -9,8 +8,6 @@
     return-void
 .end method
 
-# gym is optional metadata. It must not supply or replace a location result.
-# Location is disabled: no provider call and no fabricated callback result.
 .method public static request(Landroid/support/v4/media/session/r;Landroid/content/Context;Lcom/google/android/material/datepicker/i;Lorg/json/JSONObject;)V
     .locals 0
     .param p3, "gym"
