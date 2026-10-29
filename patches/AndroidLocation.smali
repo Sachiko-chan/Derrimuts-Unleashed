@@ -9,9 +9,21 @@
 .end method
 
 .method public static request(Landroid/support/v4/media/session/r;Landroid/content/Context;Lcom/google/android/material/datepicker/i;Lorg/json/JSONObject;)V
-    .locals 0
+    .locals 1
     .param p3, "gym"
+
+    if-eqz p3, :check_saved
     invoke-static {p1}, Lprivacy/AndroidLocation;->disabled(Landroid/content/Context;)V
+    return-void
+
+:check_saved
+    invoke-static {p3}, Lprivacy/SavedGyms;->resolveLocation(Lorg/json/JSONObject;)Landroid/location/Location;
+    move-result-object v0
+    if-eqz v0, :using_saved_gym
+    invoke-static {p1}, Lprivacy/AndroidLocation;->disabled(Landroid/content/Context;)V
+    return-void
+
+:using_saved_gym
     return-void
 .end method
 
