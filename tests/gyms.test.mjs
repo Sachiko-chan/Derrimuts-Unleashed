@@ -14,7 +14,7 @@ test('gym codes reject unsafe URLs and correlate only fresh matching scans', () 
     } finally { fs.rmSync(dir, {recursive: true, force: true}); }
 });
 
-test('saved gym selection resolves to Android-compatible lat/lon payloads only for known gyms', () => {
+test('saved gym selection keeps a tiny Android-shaped payload for the selected gym only', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'saved-gyms-loc-test-'));
     try {
         const android = tool('android.jar');
