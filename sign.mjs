@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {root, run, tool, hash} from './scripts/common.mjs';
-const input = path.resolve(process.argv[2] || path.join(root, 'output/Derriumuts-Unleashed-110.60-arm64-r10-unsigned.apk'));
+const input = path.resolve(process.argv[2] || path.join(root, 'output/Derriumuts-Unleashed-110.60-arm64-r13-unsigned.apk'));
 const output = path.resolve(process.argv[3] || input.replace('-unsigned.apk', '.apk'));
 assert.notEqual(input, output, 'Output must differ from input');
 const key = process.env.KEYSTORE, alias = process.env.KEY_ALIAS || 'privacy';

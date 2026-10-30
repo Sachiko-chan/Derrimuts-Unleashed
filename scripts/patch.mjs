@@ -47,6 +47,7 @@ export function patch(decoded) {
     ['public final G(Lcom/innovatise/module/Module;Lcom/innovatise/splash/DeepLinkInfo;Lcom/innovatise/utils/SourceInfo;Z)V', 'routed'],
     ['public final D()V', 'hidden']
   ]) entry(base, sig, '    invoke-static {p0}, Lprivacy/CheckInTrace;->' + name + '(Landroid/app/Activity;)V');
+  entry(base, 'public final J(Ljava/lang/String;)V', '    invoke-static {p0, p1}, Lprivacy/SavedGyms;->route(Landroid/app/Activity;Ljava/lang/String;)V');
   entry('smali_classes2/nf/d.smali', 'public j()V', '    invoke-static {p0}, Lprivacy/CheckInTrace;->request(Ljava/lang/Object;)V');
   entry('smali_classes2/nf/f.smali', 'public final m()V', '    invoke-static {p0}, Lprivacy/CheckInTrace;->refresh(Ljava/lang/Object;)V');
   entry('smali_classes2/nf/f.smali', 'public i(Ljava/io/IOException;Lqo/y1;)V', '    invoke-static {p0, p1, p2}, Lprivacy/CheckInTrace;->error(Ljava/lang/Object;Ljava/lang/Throwable;Ljava/lang/Object;)V');
@@ -58,7 +59,7 @@ export function patch(decoded) {
   entry('smali_classes2/bq/a.smali', 'public e(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;Lcom/innovatise/utils/j0;)V', '    invoke-static {p1}, Lprivacy/CheckInTrace;->eligibility(Landroid/content/Context;)V');
   entry('smali_classes2/com/innovatise/utils/g0.smali', 'public l(Luf/k;Ljava/lang/Object;)V', '    invoke-static {}, Lprivacy/CheckInTrace;->eligibilityResponse()V');
   entry('smali_classes2/com/innovatise/utils/g0.smali', 'public t(Luf/k;Lnf/g;)V', '    invoke-static {}, Lprivacy/CheckInTrace;->eligibilityError()V');
-  // Stable entry point for the existing Android location provider.
+  // Route eligibility location challenges through the saved-venue helper.
   edit('smali_classes2/bq/a.smali', text => {
     const needle = '    invoke-virtual {p1, p2, v0}, Landroid/support/v4/media/session/r;->e(Landroid/content/Context;Lcom/google/android/material/datepicker/i;)V';
     assert.equal(text.split(needle).length, 2);

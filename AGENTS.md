@@ -16,9 +16,9 @@
 - Never claim runtime, login or gate testing from assembly/signature checks.
 - Avoid new dependencies unless they are necessary and hash-pinned.
 
-- r6 permits exactly two access-control observer hooks; removing those exact
+- Permit exactly two access-control observer hooks; removing those exact
   additions must reproduce original protected-class hashes. Never change
   authorization, membership validation or success/failure branches.
 
-- r7 also permits exactly one SavedGyms.install call in NFCReader.onCreate;
+- Permit exactly one SavedGyms.install call in NFCReader.onCreate;
   all other original NFC instructions must remain unchanged.

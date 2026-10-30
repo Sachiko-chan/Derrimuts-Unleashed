@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.LinkedHashMap;
 
 public final class GymCodes {
+    public static final String WINDSOR = "https://hff.deeep.link/hff-c6bJ4";
     public static final String[][] ALL = {
         // Victoria
         {"Albion",                  "https://hff.deeep.link/hff-Vae5u"},
@@ -77,5 +78,19 @@ public final class GymCodes {
     public static String name(String text) {
         if (text == null) return "";
         return text.replaceAll("[\\p{Cntrl}]", " ").trim();
+    }
+
+    public static final class Pending {
+        private final LinkedHashMap<String, Long> scans = new LinkedHashMap<String, Long>();
+        public synchronized void scanned(String raw, long now) {
+            String key = canonical(raw);
+            scans.clear(); // Only the latest submitted scan may produce a save prompt.
+            if (key != null) scans.put(key, now);
+        }
+        public synchronized boolean consume(String raw, long now) {
+            String key = canonical(raw);
+            Long start = scans.remove(key);
+            return start != null && now >= start && now - start <= 300000;
+        }
     }
 }

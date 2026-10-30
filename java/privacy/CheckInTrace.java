@@ -49,7 +49,7 @@ public final class CheckInTrace {
         if (a != null) a.getSharedPreferences(PREFS, 0).edit().putString("last", report()).apply();
     }
     private static synchronized String report() {
-        StringBuilder b = new StringBuilder("Derriumuts Unleashed r8 diagnostics\n");
+        StringBuilder b = new StringBuilder("Derriumuts Unleashed r13 diagnostics\n");
         for (String e : events) b.append(e).append('\n');
         return b.toString();
     }
@@ -77,6 +77,12 @@ public final class CheckInTrace {
             record(n + ": " + kind);
         } catch (Exception ignored) { }
     }
+    public static synchronized void savedLocation(Context a) {
+        try { if (a == owner.get()) {
+            running = true;
+            record("Saved venue coordinates passed to eligibility callback; phone location not accessed");
+        } } catch (Exception ignored) { }
+    }
     public static void eligibility(Context a) { try { if (a == owner.get()) record("Membership eligibility flow entered"); } catch (Exception ignored) { } }
     public static void eligibilityResponse() { try { record("Membership eligibility response received"); } catch (Exception ignored) { } }
     public static void eligibilityError() { try { record("Membership eligibility error callback received"); } catch (Exception ignored) { } }
@@ -88,7 +94,7 @@ public final class CheckInTrace {
     public static void show(final Activity a, boolean timedOut) {
         try {
             if (a.isFinishing()) return;
-            final String report = a.getSharedPreferences(PREFS, 0).getString("last", "No check-in attempt recorded in r8 yet.");
+            final String report = a.getSharedPreferences(PREFS, 0).getString("last", "No check-in attempt recorded in r13 yet.");
             new AlertDialog.Builder(a).setTitle(timedOut ? "Check-in is still pending" : "Check-in diagnostics")
                 .setMessage((timedOut ? "The app has not finished this attempt. This does not confirm entry or cancel the request.\n\n" : "") + report)
                 .setPositiveButton("Copy details", new DialogInterface.OnClickListener() {

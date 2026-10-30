@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {verifyJavaLinks} from './helper-links.mjs';
 import path from 'node:path';
 import {root, run, tool} from './common.mjs';
 
@@ -8,7 +9,9 @@ export function compileGyms(dir) {
     const android = tool('android.jar');
     const sources = ['GymCodes', 'SavedGyms', 'CheckInTrace'].map(n => path.join(root, 'java/privacy', n + '.java'));
     const json = tool('json.jar');
+    sources.push(path.join(root, 'tests/HelperLinkageTest.java'));
     run('java', ['-jar', tool('ecj.jar'), '-source', '8', '-target', '8', '-encoding', 'UTF-8', '-g:none', '-classpath', android + path.delimiter + json, '-d', classes, ...sources]);
+    verifyJavaLinks(classes, path.join(dir, 'decoded'), android, json, dir);
     const inputs = fs.readdirSync(path.join(classes, 'privacy')).sort().map(n => path.join(classes, 'privacy', n));
     run('java', ['-cp', tool('r8.jar'), 'com.android.tools.r8.D8', '--release', '--min-api', '26', '--lib', android, '--lib', json, '--output', dex, ...inputs]);
     return fs.readFileSync(path.join(dex, 'classes.dex'));
