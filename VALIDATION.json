@@ -1,6 +1,6 @@
 {
-  "revision": "r10",
-  "sha256": "e51e2d5cd212039749da371f1dcf64fcd0e3737c92dcda54fa18c199ae60678f",
+  "revision": "r13",
+  "sha256": "ed2da26d63bc54844405bf9adb6bac87fa8e0f2612383b79124a068dacf5d4c1",
   "cleanBuildsCompared": 2,
   "unsignedByteIdentical": true,
   "node": "v24.22.1",
@@ -53,8 +53,9 @@
     "alignment": "4-byte; native libraries 16 KiB"
   },
   "runtimeTested": false,
-  "testsPassed": 5,
-  "sourceOnlyDelivery": true,
-  "androidLocationProviderDisabled": true,
-  "locationPermissionsDeclared": []
+  "testsPassed": 6,
+  "javaHelperCallDescriptorsVerified": 19,
+  "signed": false,
+  "sourceBaseCommit": "8c624e1d9774264a9f14ce1ea5ca4ce252226162",
+  "androidLocationPermissionsPresent": false
 }

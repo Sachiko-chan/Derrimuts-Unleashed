@@ -77,11 +77,11 @@ if (args.includes('--repro-check')) {
   assert(first.result.equals(second.result), `Reproduction mismatch: ${hash(first.result)} / ${hash(second.result)}`);
   reproduced = true;
 }
-const name = 'Derriumuts-Unleashed-110.60-arm64-r10-unsigned.apk', digest = hash(first.result);
+const name = 'Derriumuts-Unleashed-110.60-arm64-r13-unsigned.apk', digest = hash(first.result);
 fs.writeFileSync(path.join(out, name), first.result);
 fs.writeFileSync(path.join(out, 'SHA256SUMS'), `${digest}  ${name}\n`);
 const javaVersion = run('java', ['-version'], {stdio: 'pipe'}).stderr.toString().trim();
-fs.writeFileSync(path.join(out, 'build-report.json'), JSON.stringify({revision: 'r10', sha256: digest,
+fs.writeFileSync(path.join(out, 'build-report.json'), JSON.stringify({revision: 'r13', sha256: digest,
   cleanBuildsCompared: reproduced ? 2 : 1, unsignedByteIdentical: reproduced,
   node: process.version, java: javaVersion, inputs: lock.apks, tools: lock.tools,
   checks: first.checks, runtimeTested: false}, null, 2) + '\n');
